@@ -1,0 +1,10 @@
+.SearchBox {
+  display: flex;
+  flex-direction: column;
+  width: 300px;
+  margin-bottom: 20px;
+}
+
+.SearchBox label {
+  margin-bottom: 10px;
+}
