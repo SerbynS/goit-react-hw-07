@@ -43,17 +43,17 @@ export default function ContactForm({ onAddUser }) {
       onSubmit={handleSubmit}
       validationSchema={ContactSchema}
     >
-      <Form>
-        <div>
+      <Form className={css.form}>
+        <div className={css.formItem}>
           <label htmlFor={nameFieldId}>Name</label>
           <Field type="text" name="name" id={nameFieldId} />
-          <ErrorMessage name="name" component="span" />
+          <ErrorMessage name="name" component="span" className={css.error} />
         </div>
 
-        <div>
+        <div className={css.formItem}>
           <label htmlFor={numberFieldId}>Number</label>
           <Field type="tel" name="number" id={numberFieldId} />
-          <ErrorMessage name="number" component="span" />
+          <ErrorMessage name="number" component="span" className={css.error} />
         </div>
 
         <button type="submit">Add contact</button>

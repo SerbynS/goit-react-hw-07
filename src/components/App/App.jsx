@@ -6,15 +6,27 @@ import css from "./App.module.css";
 
 // import userData from "../../userData.json";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 export default function App() {
-  const [userData, setUserData] = useState([
-    { id: "id-1", name: "Rosie Simpson", number: "459-12-56" },
-    { id: "id-2", name: "Hermione Kline", number: "443-89-12" },
-    { id: "id-3", name: "Eden Clements", number: "645-17-79" },
-    { id: "id-4", name: "Annie Copeland", number: "227-91-26" },
-  ]);
+  const [userData, setUserData] = useState(() => {
+    const userValues = window.localStorage.getItem("saved-userData");
+
+    if (userValues !== null) {
+      return JSON.parse(userValues);
+    }
+
+    return [
+      { id: "id-1", name: "Rosie Simpson", number: "459-12-56" },
+      { id: "id-2", name: "Hermione Kline", number: "443-89-12" },
+      { id: "id-3", name: "Eden Clements", number: "645-17-79" },
+      { id: "id-4", name: "Annie Copeland", number: "227-91-26" },
+    ];
+  });
+
+  useEffect(() => {
+    window.localStorage.setItem("saved-userData", JSON.stringify(userData));
+  }, [userData]);
 
   const handleUpdateUserData = (newUser) => {
     setUserData((prev) => [...prev, newUser]);

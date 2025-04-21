@@ -2,11 +2,18 @@
   border-radius: 5px;
   border: 2px solid black;
   padding: 15px 10px;
-  margin-bottom: 10px;
+  /* margin-bottom: 10px; */
 
   width: 300px;
 
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
+
+.list {
+  display: flex;
+  /* flex-direction: column; */
+  gap: 10px;
+  flex-wrap: wrap;
 }
